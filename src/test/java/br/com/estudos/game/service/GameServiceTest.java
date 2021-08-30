@@ -1,5 +1,6 @@
 package br.com.estudos.game.service;
 
+import br.com.estudos.game.exception.NotFoundException;
 import br.com.estudos.game.model.Game;
 import br.com.estudos.game.repository.GameRepository;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,7 @@ class GameServiceTest {
     GameService gameService;
 
     @Test
-    void givenValidScenario_whenFindAllIsCalled_thenReturnGamesList(){
+    void givenValidScenario_whenFindAllIsCalled_thenShouldReturnGamesList(){
 
         Game game = Game.builder()
                 .nome("sonic")
@@ -56,14 +57,12 @@ class GameServiceTest {
     }
 
     @Test
-    public void givenAInvalidId_whenFindByIdIsCalled_thenShouldThrownException() {
+    public void givenAInvalidId_whenFindByIdIsCalled_thenShouldThrowException() {
 
         String errorMessage = "id deve ser maior que zero";
 
-        Exception exception = assertThrows(RuntimeException.class, () -> {
-
+        Exception exception = assertThrows(NotFoundException.class, () -> {
             gameService.findById(1L);
-
         });
     }
 }

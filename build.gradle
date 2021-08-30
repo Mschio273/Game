@@ -31,6 +31,7 @@ dependencies {
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.5.2'
     compileOnly('io.springfox:springfox-swagger2:2.9.2')
     compileOnly('io.springfox:springfox-swagger-ui:2.9.2')
+    testImplementation 'io.rest-assured:spring-mock-mvc:4.4.0'
 }
 
 test {
