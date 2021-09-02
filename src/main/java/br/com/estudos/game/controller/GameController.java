@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -36,14 +37,14 @@ public class GameController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Insere um game")
-    public Game save(@RequestBody Game game) {
+    public Game save(@Valid @RequestBody Game game) {
         return gameService.save(game);
     }
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Atualiza um game")
-    public void update(@RequestBody Game game) {
+    public void update(@Valid @RequestBody Game game) {
         gameService.update(game);
     }
 

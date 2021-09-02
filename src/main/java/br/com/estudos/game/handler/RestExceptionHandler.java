@@ -17,7 +17,7 @@ public class RestExceptionHandler {
                 NotFoundExceptionDetails.builder()
                         .timeStamp(LocalDateTime.now())
                         .status(HttpStatus.NOT_FOUND.value())
-                        .title("Bad request exception, check the documentation")
+                        .title("Not found exception, check the documentation")
                         .details(nfe.getMessage())
                         .developerMessage(nfe.getClass().getName())
                         .build(), HttpStatus.NOT_FOUND);

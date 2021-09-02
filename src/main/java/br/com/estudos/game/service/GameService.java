@@ -11,7 +11,6 @@ import java.util.List;
 import static br.com.estudos.game.errors.ErrorConstants.ID_MAIOR_QUE_ZERO;
 import static br.com.estudos.game.errors.ErrorConstants.ID_NAO_ENCONTRADO;
 
-
 @Service
 public class GameService {
 

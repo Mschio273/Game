@@ -25,7 +25,7 @@ class GameServiceTest {
     GameService gameService;
 
     @Test
-    void givenValidScenario_whenFindAllIsCalled_thenShouldReturnGamesList(){
+    void givenValidScenario_whenFindAllIsCalled_thenShouldReturnGamesList() {
 
         Game game = Game.builder()
                 .nome("sonic")
@@ -35,7 +35,7 @@ class GameServiceTest {
                 .nome("sonic")
                 .build();
 
-        List<Game> listaGames = List.of(gamesEsperados);
+        var listaGames = List.of(gamesEsperados);
 
         when(gameRepository.findAll()).thenReturn(List.of(game));
 
@@ -47,13 +47,16 @@ class GameServiceTest {
     @Test
     public void givenAValidIdAndExistentId_whenFindByIdIsCalled_thenShouldReturnAGame() {
         Game game = Game.builder()
+
                 .id(1l)
                 .nome("sonic")
                 .build();
 
         when(this.gameRepository.findById(1L)).thenReturn(Optional.of(game));
 
-        assertEquals(gameService.findById(1L), game);
+        var actual = gameService.findById(1L);
+
+        assertEquals(actual, game);
     }
 
     @Test
